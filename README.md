@@ -20,4 +20,9 @@ h5. Simple addition
 
 Write a method, `add(String numbers)`, that takes a list of either zero, one, or two numbers and adds them together.
 Numbers are separated by commas.
+Only the natural numbers (integers >= 0) are supported.
 The empty string has a sum of 0.
+
+h5. Adding arbitrary number of input values
+
+Allow the `add` method to take a string with an unknown number of numbers.

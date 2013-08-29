@@ -23,4 +23,9 @@ public class SimpleAdditionTest {
 		assertThat(calculator.add("3,5"), is(equalTo(3 + 5)));
 	}
 
+	@Test
+	public void addOfManyNumbersIsSumOfThoseNumbers() {
+		assertThat(calculator.add("3,5,1,3,4"), is(equalTo(3 + 5 + 1 + 3 + 4)));
+	}
+
 }
