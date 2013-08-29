@@ -28,4 +28,16 @@ public class SimpleAdditionTest {
 		assertThat(calculator.add("3,5,1,3,4"), is(equalTo(3 + 5 + 1 + 3 + 4)));
 	}
 
+	@Test
+	public void addOfTwoNumbersSeparatedByNewlineIsSumOfThoseNumbers() {
+		assertThat(calculator.add("3\n4"), is(equalTo(3 + 4)));
+	}
+
+	@Test
+	public void addOfThreeNumbersSeparatedByNewlineAndCommaIsSumOfThoseNumbers() {
+		assertThat(calculator.add("3,4\n5"), is(equalTo(3 + 4 + 5)));
+	}
+
+
+
 }
