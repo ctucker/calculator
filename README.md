@@ -34,3 +34,16 @@ Requirements
     * the inputs "1,\n2" and "1,2\n" are invalid (either comma *or* newline, not both, and no trailing separator).
       You don't need to handle this case in your code.
 
+#### Delimiters
+
+* Allow for the specification of an arbitrary additional delimiter in your input
+* To change the delimiter, a line can be optionally added to the start of the input in the form:
+
+        //[delimiter]\n[numbers ...]
+
+ For example, to change the delimiter to a semi-colon, the input would be:
+
+        //;\n2;3;4
+
+* The delimiter specification is optional.  In its absence, the existing rules should hold.  All of your existing
+  tests should continue to pass.

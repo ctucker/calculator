@@ -38,6 +38,14 @@ public class SimpleAdditionTest {
 		assertThat(calculator.add("3,4\n5"), is(equalTo(3 + 4 + 5)));
 	}
 
+	@Test
+	public void changingDelimiterToSemiColonAllowsForSemicolonSeparators() {
+		assertThat(calculator.add("//;\n3;4"), is(equalTo(3 + 4)));
+	}
 
+	@Test
+	public void changedDelimiterStillAllowsDefaultDelimitersInSameString() {
+		assertThat(calculator.add("//:\n3:4,5\n6"), is(equalTo(3 + 4 + 5 + 6)));
+	}
 
 }
