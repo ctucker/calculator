@@ -47,3 +47,9 @@ Requirements
 
 * The delimiter specification is optional.  In its absence, the existing rules should hold.  All of your existing
   tests should continue to pass.
+
+#### Negative numbers
+
+* Calling `add` with a negative number should throw an exception.
+* The exception should include the negative number that was found
+* If there is more than one negative number, all of them should be included in the exception message

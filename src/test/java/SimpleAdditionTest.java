@@ -1,6 +1,8 @@
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -48,4 +50,30 @@ public class SimpleAdditionTest {
 		assertThat(calculator.add("//:\n3:4,5\n6"), is(equalTo(3 + 4 + 5 + 6)));
 	}
 
+	@Test
+	public void singleNegativeNumberCausesIAEReportingThatNumber() {
+		verifyIAEOnStringWithExceptions("-1");
+	}
+
+	@Test
+	public void multipleNegativeNumbersCauseIAEReportingAllNumbers() {
+		verifyIAEOnStringWithExceptions("-1,-2,-3", "-1", "-2", "-3");
+	}
+
+	@Test
+	public void negativeNumbersMixedWithPositiveNumbersCauseAnIAE() {
+		verifyIAEOnStringWithExceptions("-1,2,-3", "-1", "-3");
+	}
+
+	private void verifyIAEOnStringWithExceptions(String numbers, String ... expectedErrors) {
+		try {
+			calculator.add(numbers);
+			fail("Successfully added a negative value!");
+		}
+		catch (IllegalArgumentException e) {
+			for (String expectedError : expectedErrors) {
+				assertThat(e.getMessage(), containsString(expectedError));
+			}
+		}
+	}
 }
