@@ -15,7 +15,7 @@ Assumptions
 Rules
 -----
 
-* No line of code (test or production) may be more than 7 lines long!
+* No method (test or production) may be more than 7 lines long!
 * You can write longer methods, but they must be made shorter in the refactor step: you cannot write a new failing test
   if you have any methods with > 7 lines.
 
